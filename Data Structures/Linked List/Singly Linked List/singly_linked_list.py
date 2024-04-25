@@ -14,6 +14,17 @@ class LinkedList:
         new_node.next = self.head
         self.head = new_node
 
+    def insert_end(self, data):
+        new_node = Node(data)
+
+        if self.head is None:
+            self.head = new_node
+        else:
+            temp = self.head
+            while temp.next is not None:
+                temp = temp.next
+            temp.next = new_node
+
     def print_linkedlist(self):
         if self.head is None:
             print("Linked list is empty.")
@@ -25,14 +36,16 @@ class LinkedList:
                 temp = temp.next
 
 
-ll1 = LinkedList()
-ll1.insert_head(1)
-ll1.insert_head(2)
-ll1.insert_head(3)
-ll1.insert_head(4)
-ll1.insert_head(5)
+ll = LinkedList()
 
-ll2 = LinkedList()
+# ll.insert_head(6)
+# ll.insert_head(7)
+# ll.insert_head(8)
+ll.insert_end(1)
+ll.insert_end(2)
+ll.insert_end(3)
+ll.insert_end(4)
+ll.insert_end(5)
 
-ll1.print_linkedlist()
-ll2.print_linkedlist()
+
+ll.print_linkedlist()
