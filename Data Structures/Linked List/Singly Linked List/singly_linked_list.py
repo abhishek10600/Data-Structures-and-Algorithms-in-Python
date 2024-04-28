@@ -59,6 +59,27 @@ class LinkedList:
             new_node.next = ptr.next
             ptr.next = new_node
 
+    def delete_head(self):
+        if self.head is None:
+            print("Linked list is empty. Cannot delete the head of an empty linked list.")
+        else:
+            temp = self.head
+            self.head = self.head.next
+            temp = None
+
+    def delete_end(self):
+        if self.head is None:
+            print("Linked list is empty.")
+        elif self.head.next is None:
+            self.head = None
+        else:
+            temp = self.head
+            ptr = temp.next
+            while ptr.next is not None:
+                temp = temp.next
+                ptr = ptr.next
+            temp.next = None
+
     def print_linkedlist(self):
         if self.head is None:
             print("Linked list is empty.")
@@ -96,13 +117,38 @@ ll = LinkedList()
 # ll.insert_after(6, 9)
 
 
+# ll.insert_end(1)
+# ll.insert_end(2)
+# ll.insert_end(3)
+# ll.insert_end(4)
+
+# ll.print_linkedlist()
+
+# ll.insert_before(6, 3)
+
+# ll.print_linkedlist()
+
+
+# ll.insert_end(1)
+# ll.insert_end(2)
+# ll.insert_end(3)
+# ll.insert_end(4)
+# ll.insert_end(5)
+
+# ll.print_linkedlist()
+
+# ll.delete_head()
+
+# ll.print_linkedlist()
+
 ll.insert_end(1)
 ll.insert_end(2)
 ll.insert_end(3)
 ll.insert_end(4)
+ll.insert_end(5)
 
 ll.print_linkedlist()
 
-ll.insert_before(6, 3)
+ll.delete_end()
 
 ll.print_linkedlist()
