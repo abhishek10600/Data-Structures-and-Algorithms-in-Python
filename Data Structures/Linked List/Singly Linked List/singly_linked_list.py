@@ -38,6 +38,27 @@ class LinkedList:
             new_node.next = temp.next
             temp.next = new_node
 
+    def insert_before(self, data, value):
+        if self.head is None:
+            print("Linked list is empty")
+            return
+        if self.head.data == value:
+            new_node = Node(data)
+            new_node.next = self.head
+            self.head = new_node
+            return
+        temp = self.head
+        while temp.data != value:
+            ptr = temp
+            temp = temp.next
+            if temp is None:
+                print("Node is not found in linked list.")
+                break
+        if temp is not None:
+            new_node = Node(data)
+            new_node.next = ptr.next
+            ptr.next = new_node
+
     def print_linkedlist(self):
         if self.head is None:
             print("Linked list is empty.")
@@ -60,16 +81,28 @@ ll = LinkedList()
 # ll.insert_end(4)
 # ll.insert_end(5)
 
+# ll.insert_end(1)
+# ll.insert_end(2)
+# ll.insert_end(3)
+# ll.insert_end(4)
+# ll.insert_end(5)
+
+# ll.print_linkedlist()
+
+# ll.insert_after(6, 3)
+
+# ll.print_linkedlist()
+
+# ll.insert_after(6, 9)
+
+
 ll.insert_end(1)
 ll.insert_end(2)
 ll.insert_end(3)
 ll.insert_end(4)
-ll.insert_end(5)
 
 ll.print_linkedlist()
 
-ll.insert_after(6, 3)
+ll.insert_before(6, 3)
 
 ll.print_linkedlist()
-
-ll.insert_after(6, 9)
