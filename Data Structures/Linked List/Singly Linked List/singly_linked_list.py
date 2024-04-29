@@ -80,6 +80,24 @@ class LinkedList:
                 ptr = ptr.next
             temp.next = None
 
+    def delete_node(self, value):
+        if self.head is None:
+            print("Cannot delete. Linked list is empty.")
+            return
+        if self.head.data == value:
+            self.head = self.head.next
+            return
+        temp = self.head
+        while temp.data != value:
+            ptr = temp
+            temp = temp.next
+            if temp is None:
+                print("Node is not present in node.")
+                break
+        else:
+            ptr.next = temp.next
+            temp = None
+
     def print_linkedlist(self):
         if self.head is None:
             print("Linked list is empty.")
@@ -141,14 +159,25 @@ ll = LinkedList()
 
 # ll.print_linkedlist()
 
+# ll.insert_end(1)
+# ll.insert_end(2)
+# ll.insert_end(3)
+# ll.insert_end(4)
+# ll.insert_end(5)
+
+# ll.print_linkedlist()
+
+# ll.delete_end()
+
+# ll.print_linkedlist()
+
 ll.insert_end(1)
 ll.insert_end(2)
 ll.insert_end(3)
 ll.insert_end(4)
-ll.insert_end(5)
 
 ll.print_linkedlist()
 
-ll.delete_end()
+ll.delete_node(9)
 
-ll.print_linkedlist()
+# ll.print_linkedlist()
